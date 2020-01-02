@@ -72,8 +72,6 @@ public class MainActivity extends AppCompatActivity {
     /*
      * The listener to remove the keyboard when Enter keyboard button is pressed
      *
-     * TODO Still can't remove focus from the EditText after pushing Enter
-     *
      * */
     private EditText.OnEditorActionListener question5EditTextActionListener = new EditText.OnEditorActionListener() {
         @Override
@@ -82,8 +80,8 @@ public class MainActivity extends AppCompatActivity {
                 InputMethodManager imm = (InputMethodManager) v.getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
                 imm.hideSoftInputFromWindow(v.getWindowToken(), 0);
 
-                boolean tookFocus = v.requestFocus(View.FOCUS_DOWN, null);
-                Log.i("MainActivity.java", "OnEditorActionListener: " + tookFocus);
+                v.requestFocus(View.FOCUS_DOWN, null);
+                v.clearFocus();
 
                 return true;
             }
