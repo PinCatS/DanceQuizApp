@@ -45,32 +45,6 @@
 
         </androidx.appcompat.widget.Toolbar>
 
-        <!--Quiz description banner-->
-        <!--<LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="120dp"
-            android:orientation="vertical"
-            android:paddingLeft="16dp"
-            android:paddingRight="8dp"
-            android:paddingBottom="8dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:firstBaselineToTopHeight="36dp"
-                android:paddingBottom="12dp"
-                android:text="@string/quizDescrition"
-                android:textSize="14sp" />
-
-
-        </LinearLayout>
-
-        &lt;!&ndash; Divider &ndash;&gt;
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@color/dividerColor" />-->
-
         <!-- Question 1-->
         <RelativeLayout
             style="@style/QuestionListItemStyle"
@@ -387,7 +361,6 @@
                     android:inputType="text"
                     android:textColor="@android:color/white" />
 
-
             </com.google.android.material.textfield.TextInputLayout>
 
         </RelativeLayout>
@@ -517,7 +490,6 @@
                 android:text="@string/button_check" />
 
         </LinearLayout>
-
 
     </LinearLayout>
 
