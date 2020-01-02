@@ -40,7 +40,7 @@
                     android:paddingTop="16dp"
                     android:paddingBottom="12dp"
                     android:text="@string/quizDescrition"
-                    android:textSize="14sp" />
+                    android:textSize="18sp" />
             </LinearLayout>
 
         </androidx.appcompat.widget.Toolbar>
