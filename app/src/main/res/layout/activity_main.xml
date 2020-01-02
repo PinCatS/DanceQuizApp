@@ -99,19 +99,17 @@
                 android:layout_below="@+id/question_1"
                 android:layout_centerHorizontal="true"
                 android:text="0"
-                android:textSize="28sp" />
-
+                android:textSize="24sp" />
 
             <SeekBar
+                style="@style/SeekBarDiscreteStyle"
                 android:id="@+id/question1_seek_bar"
-                style="@style/Widget.AppCompat.SeekBar.Discrete"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/question1_slider_value"
                 android:max="12"
                 android:min="1"
-                android:progress="2"
-                android:tickMark="@android:color/white" />
+                android:progress="2" />
 
         </RelativeLayout>
 
@@ -331,12 +329,12 @@
                 android:layout_below="@+id/question_4"
                 android:layout_centerHorizontal="true"
                 android:text="0"
-                android:textSize="28sp" />
+                android:textSize="24sp" />
 
 
             <SeekBar
                 android:id="@+id/question4_seek_bar"
-                style="@style/Widget.AppCompat.SeekBar.Discrete"
+                style="@style/SeekBarDiscreteStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/question4_slider_value"
