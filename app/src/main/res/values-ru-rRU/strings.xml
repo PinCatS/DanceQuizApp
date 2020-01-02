@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_name">DanceQuizApp</string>
+    <string name="button_check">Проверить</string>
+    <string name="question1_description">Сколько танцев в Бальных танцах?</string>
+    <string name="question1_title">Вопрос 1</string>
+    <string name="question2_description">Выберите танцы, которые включены в Бальные танцы</string>
+    <string name="question2_foxtrot">Фокстрот</string>
+    <string name="question2_lindyhop">Линди Хоп</string>
+    <string name="question2_rumba">Румба</string>
+    <string name="question2_salsa">Сальса</string>
+    <string name="question2_samba">Самба</string>
+    <string name="question2_slow_waltz">Медленный Вальс</string>
+    <string name="question2_title">Вопрос 2</string>
+    <string name="question3_chacha">Ча-ча-ча</string>
+    <string name="question3_description">Выберите танец который ассоциируется с торреодором и корридой</string>
+    <string name="question3_jive">Джайв</string>
+    <string name="question3_paso_doble">Пасодопль</string>
+    <string name="question3_rumba">Румба</string>
+    <string name="question3_samba">Самба</string>
+    <string name="question3_title">Вопрос 3</string>
+    <string name="question4_description"><![CDATA[Сколько раз Донни Бёрнс и Гейнер Фэирвезе становились чемпионами мира?]]></string>
+    <string name="question4_title">Вопрос 4</string>
+    <string name="question5_description">В каком городе проходит Блэкпульский танцевальный фестиваль?</string>
+    <string name="question5_text_edit_hint">Введите город здесь</string>
+    <string name="question5_title">Вопрос 5</string>
+    <string name="question6_description">Выберите все танцевальные федерации</string>
+    <string name="question6_title">Вопрос 6</string>
+    <string name="final_score">Ваш результат: <xliff:g example="17" id="score_value">%.0f</xliff:g>%%</string>
+    <string name="quizDescrition">Давайте проверим что вы знаете о Бальных Танцах. Выберите правильные варианты ответов. Некоторые вопросы имеют несколько правильных ответов.</string>
+</resources>

@@ -1,0 +1,36 @@
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_name">DanceQuizApp</string>
+    <string name="quizDescrition">Let\'s see what you know about Ballroom Dancing! Please choose the correct answers. Some questions have more than one correct answer.</string>
+    <string name="question1_title">Question 1</string>
+    <string name="question1_description">How many dances are there in Ballroom dances?</string>
+    <string name="question2_title">Question 2</string>
+    <string name="question2_description">Select those dances which are included into Ballroom dances</string>
+    <string name="question2_salsa">Salsa</string>
+    <string name="question2_rumba">Rumba</string>
+    <string name="question2_samba">Samba</string>
+    <string name="question2_lindyhop">Lindy Hop</string>
+    <string name="question2_slow_waltz">Slow Waltz</string>
+    <string name="question2_foxtrot">Foxtrot</string>
+    <string name="question3_title">Question 3</string>
+    <string name="question3_description">Select the dance which is usually associated with a torreodor and corrida</string>
+    <string name="question3_chacha">Cha-cha-cha</string>
+    <string name="question3_jive">Jive</string>
+    <string name="question3_rumba">Rumba</string>
+    <string name="question3_samba">Samba</string>
+    <string name="question4_title">Question 4</string>
+    <string name="question4_description"><![CDATA[How many times Donnie Burns & Gaynor Fairweather became world champions?]]></string>
+    <string name="question5_title">Question 5</string>
+    <string name="question5_description">In what city Blackpool Dance Festival takes place?</string>
+    <string name="question5_text_edit_hint">Type the city here</string>
+    <string name="question6_title">Question 6</string>
+    <string name="question6_description">Select all valid dance federations</string>
+    <string name="question6_wdc" translatable="false">WDC</string>
+    <string name="question6_wdsf" translatable="false">WDSF</string>
+    <string name="question6_idf" translatable="false">IDF</string>
+    <string name="question6_ido" translatable="false">IDO</string>
+    <string name="question6_wadf" translatable="false">WADF</string>
+    <string name="question6_ipsf" translatable="false">IPSF</string>
+    <string name="button_check">Check</string>
+    <string name="question3_paso_doble">Paso doble</string>
+    <string name="final_score">Your score: <xliff:g example="17" id="score_value">%.0f</xliff:g>%%</string>
+</resources>
