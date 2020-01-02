@@ -19,12 +19,6 @@ import androidx.appcompat.widget.Toolbar;
 
 public class MainActivity extends AppCompatActivity {
 
-    /*
-     * The score will be in percentage.
-     * There 6 questions. Hence, for one question user could get max about 16.6% (100/6)
-     * However, some questions have multiple answers, so we will calculate the score for such
-     * questions as correct answers count divided by 16.6%
-     * */
     final int NUMBER_OF_BALLROOM_DANCES = 10;
     final int NUMBER_OF_WINS = 14;
 
@@ -33,6 +27,10 @@ public class MainActivity extends AppCompatActivity {
     TextView question1SliderValue;
     TextView question4SliderValue;
 
+    /*
+     * The listener to keep track of SeekBar value for question 1
+     *
+     * */
     private SeekBar.OnSeekBarChangeListener question1SeekBarChangeListener = new SeekBar.OnSeekBarChangeListener() {
         @Override
         public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
@@ -50,22 +48,10 @@ public class MainActivity extends AppCompatActivity {
         }
     };
 
-    private EditText.OnEditorActionListener question5EditTextActionListener = new EditText.OnEditorActionListener() {
-        @Override
-        public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-            if (actionId == EditorInfo.IME_ACTION_DONE) {
-                InputMethodManager imm = (InputMethodManager) v.getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
-                imm.hideSoftInputFromWindow(v.getWindowToken(), 0);
-
-                boolean tookFocus = v.requestFocus(View.FOCUS_DOWN, null);
-                Log.i("MainActivity.java", "OnEditorActionListener: " + tookFocus);
-
-                return true;
-            }
-            return false;
-        }
-    };
-
+    /*
+     * The listener to keep track of SeekBar value for question 4
+     *
+     * */
     private SeekBar.OnSeekBarChangeListener question4SeekBarChangeListener = new SeekBar.OnSeekBarChangeListener() {
         @Override
         public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
@@ -83,15 +69,43 @@ public class MainActivity extends AppCompatActivity {
         }
     };
 
+    /*
+     * The listener to remove the keyboard when Enter keyboard button is pressed
+     *
+     * TODO Still can't remove focus from the EditText after pushing Enter
+     *
+     * */
+    private EditText.OnEditorActionListener question5EditTextActionListener = new EditText.OnEditorActionListener() {
+        @Override
+        public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+            if (actionId == EditorInfo.IME_ACTION_DONE) {
+                InputMethodManager imm = (InputMethodManager) v.getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
+                imm.hideSoftInputFromWindow(v.getWindowToken(), 0);
+
+                boolean tookFocus = v.requestFocus(View.FOCUS_DOWN, null);
+                Log.i("MainActivity.java", "OnEditorActionListener: " + tookFocus);
+
+                return true;
+            }
+            return false;
+        }
+    };
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        /* Find and set the custom Top App Bar */
         Toolbar myToolbar = findViewById(R.id.toolbar);
         setSupportActionBar(myToolbar);
 
         setContentView(R.layout.activity_main);
 
+        /*
+         * Attach listeners to the seek bars and TextEdit
+         * Set SeekBar initial value to 2
+         *
+         * */
         final SeekBar question1SeekBar = findViewById(R.id.question1_seek_bar);
         question1SeekBar.setOnSeekBarChangeListener(question1SeekBarChangeListener);
 
@@ -108,6 +122,18 @@ public class MainActivity extends AppCompatActivity {
         question5EditText.setOnEditorActionListener(question5EditTextActionListener);
     }
 
+    /*
+     * Invoked by Check button
+     *
+     * Gets scores from each answer and calculates the percentage.
+     * The score returned by each question is in the range [0, 1]
+     * The final percentage is calculated as (scores/6)*100
+     *
+     * Toast message is created and shown here
+     *
+     * Finally, the score is reset to 0
+     *
+     * */
     public void checkAnswers(View view) {
 
         /* Checking answer 1 */
@@ -140,14 +166,22 @@ public class MainActivity extends AppCompatActivity {
         String toastMessage = getString(R.string.final_score, score);
         Toast.makeText(this, toastMessage, Toast.LENGTH_LONG).show();
 
+        /* Reset the score */
         score = 0;
     }
 
+    /*
+     * Checks question 1 answer.
+     * The question is how much dances are there in Ballroom Dances.
+     * The correct answer is 10.
+     * User uses SeekBar to specify the answer
+     *
+     * @return score in the range [0, 1]
+     * */
     private float checkQuestion1() {
         float answer1_score = 0;
 
         int answerForQuestion1 = Integer.parseInt(question1SliderValue.getText().toString());
-        Log.i("MainActivity.java", "checkQuestion1: " + answerForQuestion1);
         if (answerForQuestion1 == NUMBER_OF_BALLROOM_DANCES) {
             answer1_score++;
         }
@@ -155,6 +189,19 @@ public class MainActivity extends AppCompatActivity {
         return answer1_score;
     }
 
+    /*
+     * Checks question 2 answer.
+     * The question is what dances are included into the Ballroom Dances.
+     * The correct answers are Rumba, Samba, Slow Waltz and Foxtrot.
+     * User uses CheckBoxes to answer the question.
+     *
+     * If user checked incorrect checkbox, the score is decreased
+     * If user checked correct checkbox, the score is increased
+     * Finally, the final score is divided by 4 (number of correct answers)
+     * If final score is negative, 0 is returned
+     *
+     * @return score in the range [0, 1]
+     * */
     private float checkQuestion2() {
         float answer2_score = 0;
 
@@ -194,11 +241,17 @@ public class MainActivity extends AppCompatActivity {
             answer2_score = 0;
         }
 
-        Log.i("MainActivity.java", "checkQuestion2: " + answer2_score);
-
         return answer2_score;
     }
 
+    /*
+     * Checks question 3 answer.
+     * The question is what dance is associated with torriodor and corrida.
+     * The correct answer is Paso Doble.
+     * User uses RadioButton to specify the answer
+     *
+     * @return score in the range [0, 1]
+     * */
     private float checkQuestion3() {
         float answer3_score = 0;
 
@@ -207,16 +260,22 @@ public class MainActivity extends AppCompatActivity {
         if (checkedRadioButtonId == R.id.question3_paso_radio) {
             answer3_score++;
         }
-        Log.i("MainActivity.java", "checkQuestion3: " + answer3_score);
 
         return answer3_score;
     }
 
+    /*
+     * Checks question 4 answer.
+     * The question is how many time Donnie Burns & Gainer became world champions.
+     * The correct answer is 14.
+     * User uses SeekBar to specify the answer
+     *
+     * @return score in the range [0, 1]
+     * */
     private float checkQuestion4() {
         float answer4_score = 0;
 
         int answerForQuestion4 = Integer.parseInt(question4SliderValue.getText().toString());
-        Log.i("MainActivity.java", "checkQuestion4: " + answerForQuestion4);
         if (answerForQuestion4 == NUMBER_OF_WINS) {
             answer4_score++;
         }
@@ -224,6 +283,15 @@ public class MainActivity extends AppCompatActivity {
         return answer4_score;
     }
 
+    /*
+     * Checks question 5 answer.
+     * The question is where Blackpool Dance festival takes place.
+     * The correct answer is Blackpool.
+     * User uses EditText to specify the answer
+     * The answer is not case sensitive
+     *
+     * @return score in the range [0, 1]
+     * */
     private float checkQuestion5() {
         float answer5_score = 0;
 
@@ -239,6 +307,17 @@ public class MainActivity extends AppCompatActivity {
         return answer5_score;
     }
 
+    /*
+     * Checks question 6 answer.
+     * The question is what dance federations are valid.
+     * The correct answer is all are valid, so all should be checked.
+     * User uses CheckBoxes to specify the answer
+     *
+     * Each checked checkbox adds up to score
+     * Finally, score is divided by 6 (number of valid answers)
+     *
+     * @return score in the range [0, 1]
+     * */
     private float checkQuestion6() {
         float answer6_score = 0;
 
@@ -273,9 +352,6 @@ public class MainActivity extends AppCompatActivity {
         }
 
         answer6_score /= 6;
-
-
-        Log.i("MainActivity.java", "checkQuestion6: " + answer6_score);
 
         return answer6_score;
     }

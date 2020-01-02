@@ -7,5 +7,4 @@
     <color name="questionTitle">#8BC34A</color>
     <color name="dividerColor">#343434</color>
     <color name="mtrl_textinput_default_box_stroke_color" tools:override="true">#fff</color>
-    <color name="mtrl_indicator_text_color" tools:override="true">#fff</color>
 </resources>
