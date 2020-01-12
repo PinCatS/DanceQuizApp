@@ -1,5 +1,5 @@
 # DanceQuizApp
-DanceQuizApp is an adnroid application.
+**DanceQuizApp** is an adnroid application.
 It was my solution for the Project 3 of the Udacity Android Basics nanodegree program.
 The goal of the project was to come up with the quiz topic, design and finally implement the app using Control components and following coding best practices and material design recommendations.
 
